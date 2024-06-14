@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelAuthenticationLog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -31,6 +32,13 @@ class AuthenticationLog extends Model
         'logout_at',
         'cleared_by_user',
         'location',
+        'iso_code',
+        'country',
+        'city',
+        'state_name',
+        'postal_code',
+        'timezone',
+        'currency',
     ];
 
     protected $casts = [
@@ -59,4 +67,6 @@ class AuthenticationLog extends Model
     {
         return $this->morphTo();
     }
+
+
 }
