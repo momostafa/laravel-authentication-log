@@ -41,6 +41,13 @@ class FailedLoginListener
                 'login_at' => now(),
                 'login_successful' => false,
                 'location' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->toArray() : null,
+                'country' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->country : null,
+                'city' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->city : null,
+                'state_name' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->state_name : null,
+                'timezone' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->timezone : null,
+                'currency' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->currency : null,
+                'postal_code' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->postal_code : null,
+                'iso_code' => config('authentication-log.notifications.new-device.location') ? optional(geoip()->getLocation($ip))->iso_code : null,
             ]);
 
             if (config('authentication-log.notifications.failed-login.enabled')) {
